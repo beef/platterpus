@@ -93,67 +93,6 @@ function html5blank_nav()
 	);
 }
 
-// Load Custom Theme Scripts using Enqueue
-function html5blank_scripts()
-{
-    if (!is_admin()) {
-        wp_deregister_script('jquery'); // Deregister WordPress jQuery
-        wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js', array(), '1.9.0'); // Google CDN jQuery
-        wp_enqueue_script('jquery'); // Enqueue it!
-
-        wp_register_script('conditionizr', get_template_directory_uri() . 'assets/javascripts/conditionizr.min.js', array('jquery'), '2.0.0'); // Modernizr
-        wp_enqueue_script('conditionizr'); // Enqueue it!
-        
-        wp_register_script('modernizr', get_template_directory_uri() . 'assets/javascripts/modernizr.min.js', array('jquery'), '2.6.2'); // Modernizr
-        wp_enqueue_script('modernizr'); // Enqueue it!
-
-        wp_register_script('html5blankscripts', get_template_directory_uri() . 'assets/javascripts/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
-        wp_enqueue_script('html5blankscripts'); // Enqueue it!
-    }
-}
-
-// Loading Conditional Scripts
-function conditional_scripts()
-{
-    if (is_page('pagenamehere')) {
-        wp_register_script('scriptname', get_template_directory_uri() . 'assets/javascripts/scriptname.js', array('jquery'), '1.0.0'); // Conditional (pages/posts) script
-        wp_enqueue_script('scriptname'); // Enqueue it!
-    }
-}
-
-// Theme Stylesheets using Enqueue
-function html5blank_styles()
-{
-    wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
-    wp_enqueue_style('normalize'); // Enqueue it!
-    
-    wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
-    wp_enqueue_style('html5blank'); // Enqueue it!
-}
-
-// Register HTML5 Blank's Navigation
-function register_html5_menu()
-{
-    register_nav_menus(array( // Using array to specify more menus if needed
-        'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
-        'sidebar-menu' => __('Sidebar Menu', 'html5blank'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
-    ));
-}
-
-// Remove the <div> surrounding the dynamic navigation to cleanup markup
-function my_wp_nav_menu_args($args = '')
-{
-    $args['container'] = false;
-    return $args;
-}
-
-// Remove Injected classes, ID's and Page ID's from Navigation <li> items
-function my_css_attributes_filter($var)
-{
-    return is_array($var) ? array() : '';
-}
-
 // Remove invalid rel attribute values in the categorylist
 function remove_category_rel_from_category_list($thelist)
 {
