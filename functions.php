@@ -39,12 +39,12 @@ if (function_exists('add_theme_support'))
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
 	'default-color' => 'FFF',
-	'default-image' => get_template_directory_uri() . '/img/bg.jpg'
+	'default-image' => get_template_directory_uri() . 'assets/images/bg.jpg'
     ));*/
 
     // Add Support for Custom Header - Uncomment below if you're going to use
     /*add_theme_support('custom-header', array(
-	'default-image'			=> get_template_directory_uri() . '/img/headers/default.jpg',
+	'default-image'			=> get_template_directory_uri() . 'assets/images/headers/default.jpg',
 	'header-text'			=> false,
 	'default-text-color'		=> '000',
 	'width'				=> 1000,
@@ -101,13 +101,13 @@ function html5blank_scripts()
         wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js', array(), '1.9.0'); // Google CDN jQuery
         wp_enqueue_script('jquery'); // Enqueue it!
 
-        wp_register_script('conditionizr', get_template_directory_uri() . '/js/conditionizr.min.js', array('jquery'), '2.0.0'); // Modernizr
+        wp_register_script('conditionizr', get_template_directory_uri() . 'assets/javascripts/conditionizr.min.js', array('jquery'), '2.0.0'); // Modernizr
         wp_enqueue_script('conditionizr'); // Enqueue it!
         
-        wp_register_script('modernizr', get_template_directory_uri() . '/js/modernizr.min.js', array('jquery'), '2.6.2'); // Modernizr
+        wp_register_script('modernizr', get_template_directory_uri() . 'assets/javascripts/modernizr.min.js', array('jquery'), '2.6.2'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_register_script('html5blankscripts', get_template_directory_uri() . 'assets/javascripts/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
     }
 }
@@ -116,7 +116,7 @@ function html5blank_scripts()
 function conditional_scripts()
 {
     if (is_page('pagenamehere')) {
-        wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional (pages/posts) script
+        wp_register_script('scriptname', get_template_directory_uri() . 'assets/javascripts/scriptname.js', array('jquery'), '1.0.0'); // Conditional (pages/posts) script
         wp_enqueue_script('scriptname'); // Enqueue it!
     }
 }
@@ -285,7 +285,7 @@ function remove_thumbnail_dimensions( $html )
 // Custom Gravatar in Settings > Discussion
 function html5blankgravatar ($avatar_defaults)
 {
-    $myavatar = get_template_directory_uri() . '/img/gravatar.jpg';
+    $myavatar = get_template_directory_uri() . 'assets/images/gravatar.jpg';
     $avatar_defaults[$myavatar] = "Custom Gravatar";
     return $avatar_defaults;
 }
