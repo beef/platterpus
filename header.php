@@ -1,6 +1,8 @@
 <!doctype html>
-<html <?php language_attributes(); ?> class="no-js">
-
+<!--[if lte IE 9]><html class="no-js ie9" <?php language_attributes(); ?>><![endif]-->
+<!--[if lte IE 8]><html class="no-js ie8" <?php language_attributes(); ?>><![endif]-->
+<!--[if lte IE 7]><html class="no-js ie7" <?php language_attributes(); ?>><![endif]-->
+<!--[if !IE]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
   <head>
     <title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
     
@@ -9,7 +11,6 @@
     <meta name="robots" content="all" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
 
     <meta name="description" content="<?php bloginfo('description'); ?>" />
     <meta name="keywords" content="" />
@@ -32,17 +33,9 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/assets/images/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/assets/images/apple-touch-icon-precomposed.png">
   
-    <!--[if ! lte IE 6]><!-->
-      <link href="style.css" media="screen,tv,projection" rel="Stylesheet" type="text/css" />
-      <!--[if lte IE 9]><link href="assets/stylesheets/ie9.css" media="screen" rel="Stylesheet" type="text/css" /><![endif]-->
-      <!--[if lte IE 8]><link href="assets/stylesheets/ie8.css" media="screen" rel="Stylesheet" type="text/css" /><![endif]-->
-      <!--[if lte IE 7]><link href="assets/stylesheets/ie7.css" media="screen" rel="Stylesheet" type="text/css" /><![endif]-->
-    <!--<![endif]-->
-    <!--[if lte IE 6]>
-      <link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
-    <![endif]-->
-      
-    <script src="assets/javascripts/modernizr.min.js"></script>
+    <!-- so:assets -->
+    <?php wp_head(); ?>
+    <!-- eo:assets -->
   
     <script type="text/javascript">
       var _gaq = _gaq || [];
