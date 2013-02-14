@@ -25,7 +25,7 @@ add_action( 'admin_menu', 'sandbox_example_theme_menu' );
 /**
  * Renders a simple page to display for the theme menu defined above.
  */
-function sandbox_theme_display( $active_tab = '' ) {
+function sandbox_theme_display() {
 ?>
     <!-- Create a header in the default WordPress 'wrap' container -->
     <div class="wrap">
@@ -36,25 +36,11 @@ function sandbox_theme_display( $active_tab = '' ) {
         
         <form method="post" action="options.php">
             <?php
-            
-                if( $active_tab == 'display_options' ) {
-                
-                    settings_fields( 'sandbox_theme_display_options' );
-                    do_settings_sections( 'sandbox_theme_display_options' );
+
+            settings_fields( 'sandbox_theme_input_examples' );
+            do_settings_sections( 'sandbox_theme_input_examples' );
                     
-                } elseif( $active_tab == 'social_options' ) {
-                
-                    settings_fields( 'sandbox_theme_social_options' );
-                    do_settings_sections( 'sandbox_theme_social_options' );
-                    
-                } else {
-                
-                    settings_fields( 'sandbox_theme_input_examples' );
-                    do_settings_sections( 'sandbox_theme_input_examples' );
-                    
-                } // end if/else
-                
-                submit_button();
+            submit_button();
             
             ?>
         </form>
