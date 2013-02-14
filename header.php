@@ -34,15 +34,15 @@
     <link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/assets/images/apple-touch-icon-precomposed.png">
   
     <!-- so:assets -->
-    <?php wp_head(); ?>
+        <?php wp_head(); ?>
     <!-- eo:assets -->    
     
     <?php $input_examples = get_option('sandbox_theme_input_examples'); ?>
-    <?php if( isset( $input_examples['input_example'] ) && $input_examples['input_example'] ) : ?>
+    <?php if( isset( $input_examples['google_analytics_id'] ) && $input_examples['google_analytics_id'] ) : ?>
       <!-- Google Analytics -->
         <script type="text/javascript">
           var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', '<?php echo sanitize_text_field( $input_examples['input_example'] ); ?>']);
+          _gaq.push(['_setAccount', '<?php echo sanitize_text_field( $input_examples['google_analytics_id'] ); ?>']);
           _gaq.push(['_trackPageview']);
 
           (function() {
@@ -53,9 +53,6 @@
         </script>
       <!-- End Google Analytics -->
     <?php endif ?>
-
-    
-      
   </head>
 
   <body <?php body_class(); ?>>
