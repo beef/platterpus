@@ -3,7 +3,7 @@
 	<!-- Section -->
 	<section>
 	
-		<h1><?php _e( 'Categories for'); the_category(); ?></h1>
+		<h1>Categories for <?php the_category(); ?></h1>
 	
 		<?php get_template_part('loop'); ?>
 		

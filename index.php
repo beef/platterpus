@@ -3,7 +3,7 @@
 	<!-- Section -->
 	<section>
 	
-		<h1><?php _e( 'Latest Posts'); ?></h1>
+		<h1>Latest Posts</h1>
 	
 		<?php get_template_part('loop'); ?>
 		

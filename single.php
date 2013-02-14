@@ -24,17 +24,17 @@
 			
 			<!-- Post Details -->
 			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts' ), __( '1 Comment' ), __( '% Comments' )); ?></span>
+			<span class="author">Published by <?php the_author_posts_link(); ?></span>
+			<span class="comments"><?php comments_popup_link('Leave your thoughts','1 Comment','% Comments'); ?></span>
 			<!-- /Post Details -->
 			
 			<?php the_content(); // Dynamic Content ?>
 			
-			<?php the_tags( __( 'Tags: ' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+			<?php the_tags('Tags: ', ', ', '<br>'); // Separated by commas with a line break at the end ?>
 			
-			<p><?php _e( 'Categorised in: ' ); the_category(', '); // Separated by commas ?></p>
+			<p>Categorised in: <?php the_category(', '); // Separated by commas ?></p>
 			
-			<p><?php _e( 'This post was written by ' ); the_author(); ?></p>
+			<p>This post was written by <?php the_author(); ?></p>
 			
 			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 			
@@ -50,7 +50,7 @@
 		<!-- Article -->
 		<article>
 			
-			<h1><?php _e( 'Sorry, nothing to display.' ); ?></h1>
+			<h1>Sorry, nothing to display.</h1>
 			
 		</article>
 		<!-- /Article -->
