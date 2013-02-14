@@ -11,67 +11,79 @@
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
 function my_wp_nav_menu_args($args = '')
 {
-    $args['container'] = false;
-    return $args;
+		$args['container'] = false;
+		return $args;
 }
 
 // Remove Injected classes, ID's and Page ID's from Navigation <li> items
 function my_css_attributes_filter($var)
 {
-    return is_array($var) ? array() : '';
+		return is_array($var) ? array() : '';
 }
 
 // Remove invalid rel attribute values in the categorylist
 function remove_category_rel_from_category_list($thelist)
 {
-    return str_replace('rel="category tag"', 'rel="tag"', $thelist);
+		return str_replace('rel="category tag"', 'rel="tag"', $thelist);
 }
 
 // Remove wp_head() injected Recent Comment styles
 function my_remove_recent_comments_style()
 {
-    global $wp_widget_factory;
-    remove_action('wp_head', array(
-        $wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
-        'recent_comments_style'
-    ));
+		global $wp_widget_factory;
+		remove_action('wp_head', array(
+				$wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
+				'recent_comments_style'
+		));
 }
 
 // Remove 'text/css' from our enqueued stylesheet
 function html5_style_remove($tag) {
-    return preg_replace('~\s+type=["\'][^"\']++["\']~', '', $tag);
+		return preg_replace('~\s+type=["\'][^"\']++["\']~', '', $tag);
 }
 
 // Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
 function remove_thumbnail_dimensions( $html ) {
-    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
-    return $html;
+		$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+		return $html;
 }
 
 function example_remove_dashboard_widgets() {
-    // Globalize the metaboxes array, this holds all the widgets for wp-admin
-    global $wp_meta_boxes;
+		// Globalize the metaboxes array, this holds all the widgets for wp-admin
+		global $wp_meta_boxes;
 
-    // Remove the incomming links widget
-    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);   
+		// Remove the incomming links widget
+		unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);   
 
-    // Remove right now
-    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
-    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
-    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+		// Remove right now
+		unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
+		unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+		unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
 }
 
 function platterpus_remove_menu_elements()
 {   
-    // Remove Theme Editor
-    remove_submenu_page( 'themes.php', 'theme-editor.php' );  
+		// Remove Theme Editor
+		remove_submenu_page( 'themes.php', 'theme-editor.php' );  
 
-    // Remove Plugin Editor  
-    remove_submenu_page( 'plugins.php', 'plugin-editor.php' );
+		// Remove Plugin Editor  
+		remove_submenu_page( 'plugins.php', 'plugin-editor.php' );
 
-    // Remove Comments 
-    remove_menu_page( 'edit-comments.php' );
+		// Remove Comments 
+		remove_menu_page( 'edit-comments.php' );
 }
+
+// Change Login Error Messages
+function failed_login() {
+	return 'The login information you have entered is incorrect.';
+}
+
+// Edt Admin Footer
+function modify_footer_admin () {  
+  echo 'Created by <a href="http://www.wearebeef.com">Beef</a>. Powered by <a href="http://www.wordpress.org">WordPress</a>';  
+}  
+
+
 
 // Initiate
 //---------------------------------------------------------
@@ -82,6 +94,8 @@ add_filter('style_loader_tag', 'html5_style_remove'); // Remove 'text/css' from 
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
 add_filter('screen_options_show_screen', '__return_false'); // Hides the screen options tab
+add_filter('login_errors', 'failed_login'); // Change Login Error Messages
+add_filter('admin_footer_text', 'modify_footer_admin'); // Edt Admin Footer
 
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
 
