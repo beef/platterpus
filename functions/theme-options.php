@@ -6,32 +6,38 @@
  */
 
 function setup_theme_admin_menus() {
-    add_menu_page('Platterpus settings', 'Platterpus settings', 'manage_options', 'platter_settings', 'platterpus_settings_page');
+    add_menu_page(get_bloginfo(name).' Settings', get_bloginfo(name).' Settings', 'manage_options', strtolower(get_bloginfo(name)).'_settings', 'platterpus_settings_page');
 }
 
 function platterpus_settings_page() {
-
-    if (isset($_POST["update_settings"])) {
-        $num_elements = esc_attr($_POST["num_elements"]);   
-        update_option("theme_name_num_elements", $num_elements);
-    }
-
 ?>
 
     <div class="wrap">
         
-        <?php screen_icon('themes'); ?> <h2>Front page elements</h2>
+        <?php screen_icon('themes'); ?><h2><?php bloginfo(name); ?> Settings</h2>
+        
+        <?php
+        if (isset($_POST["update_settings"])) {
+            $disqus_shortname = esc_attr($_POST["disqus_shortname"]);   
+            update_option("platterpus_disqus_shortname", $disqus_shortname);
+        ?>
+            <div id="setting-error-settings_updated" class="updated settings-error">
+                <p><strong>Settings saved</strong></p>
+            </div>
+        <?php
+        } else {
+            $disqus_shortname = get_option("platterpus_disqus_shortname");  
+        }
+        ?>
         
         <form method="POST" action="">
         <table class="form-table">
             <tr valign="top">
                 <th scope="row">
-                    <label for="num_elements">
-                        Number of elements on a row:
-                    </label>
+                    <label for="disqus_shortname">Disqus shortname:</label>
                 </th>
                 <td>
-                    <input type="text" name="num_elements" size="25" value="<?php echo $num_elements;?>" />
+                    <input type="text" name="disqus_shortname" size="25" value="<?php echo $disqus_shortname;?>" />
                 </td>
             </tr>                
         </table>
