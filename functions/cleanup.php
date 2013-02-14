@@ -62,9 +62,15 @@ function example_remove_dashboard_widgets() {
 }
 
 function platterpus_remove_menu_elements()
-{
-    remove_submenu_page( 'themes.php', 'theme-editor.php' );
+{   
+    // Remove Theme Editor
+    remove_submenu_page( 'themes.php', 'theme-editor.php' );  
+
+    // Remove Plugin Editor  
     remove_submenu_page( 'plugins.php', 'plugin-editor.php' );
+
+    // Remove Comments 
+    remove_menu_page( 'edit-comments.php' );
 }
 
 // Initiate
