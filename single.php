@@ -1,7 +1,3 @@
-<?php
-	$disqus_shortname = get_option("platterpus_disqus_shortname"); 
-?> 
-
 <?php get_header(); ?>
 	
 	<!-- Section -->
@@ -41,11 +37,14 @@
 			<p>This post was written by <?php the_author(); ?></p>
 			
 			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
-			
-			<?php disqus_embed($disqus_shortname); ?>
+   
+      <?php $input_examples = get_option('platterpus_input_examples'); ?>
+      
+      <?php if( isset( $input_examples['disqus_shortname'] ) && $input_examples['disqus_shortname'] ) : ?>   
+		     <?php disqus_embed($input_examples['disqus_shortname']); ?>
+         <?php disqus_count($input_examples['disqus_shortname']); ?>  
+      <?php endif ?>   
 									
-			<?php disqus_count($disqus_shortname); ?>
-			
 		</article>
 		<!-- /Article -->
 		
