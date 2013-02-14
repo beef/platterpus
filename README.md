@@ -2,10 +2,13 @@
 
 Platterpus is a base Wordpress theme based on Platter. It is the starting point to Wordpress projects at [Beef](http://wearebeef.co.uk).
 
-##What It does
+##Why
+There are plenty of other Wordpress Starter themes out there, many are even listed bellow. There are of corse always bits and pieces that don't suit your developement flow, or the way you like your CSS layed out etc. Also, swe have so specific requirments as an agency that mean we need something we can use on many sites, and so something we wrote ourselves.
 
-##Who Built This
-Platterpus was put together by the Front End Dev nerds at Beef.
+##What
+
+##Who
+Platterpus was written / compiled by the Front End Dev nerds at Beef.
 
 ###Liam Richardson  
 - [@discoliam](http://twitter.com/discoliam "Liam Richardson on Twitter")  
@@ -24,4 +27,6 @@ We more than willingly stole from these projects:
 - [Roots Theme](http://www.rootstheme.com)  
 - [Starkers](http://viewportindustries.com/products/starkers/) by Viewport Industries  
 
-We picked up a few tips and tricks from these tutorials:
+And, we picked up a few tips and tricks from:
+- [Smashing Magazine](http://www.smashingmagazine.com)
+- [Net Tuts](http://net.tutsplus.com)
