@@ -1,3 +1,7 @@
+<?php
+	$disqus_shortname = get_option("platterpus_disqus_shortname"); 
+?> 
+
 <?php get_header(); ?>
 	
 	<!-- Section -->
@@ -12,7 +16,9 @@
 		
 			<?php the_content(); ?>
 			
-			<?php comments_template( '', true ); // Remove if you don't want comments ?>
+			<?php disqus_embed($disqus_shortname); ?>
+									
+			<?php disqus_count($disqus_shortname); ?>
 			
 			<?php edit_post_link(); ?>
 			

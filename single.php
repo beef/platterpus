@@ -1,3 +1,7 @@
+<?php
+	$disqus_shortname = get_option("platterpus_disqus_shortname"); 
+?> 
+
 <?php get_header(); ?>
 	
 	<!-- Section -->
@@ -38,7 +42,9 @@
 			
 			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 			
-			<?php comments_template(); ?>
+			<?php disqus_embed($disqus_shortname); ?>
+									
+			<?php disqus_count($disqus_shortname); ?>
 			
 		</article>
 		<!-- /Article -->
