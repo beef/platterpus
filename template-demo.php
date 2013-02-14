@@ -1,4 +1,6 @@
-<?php /* Template Name: Demo Page Template */ ?>
+<?php /* Template Name: Demo Page Template */ 
+	$options = get_option( 'platter_settings' ); 
+?> 
 
 <?php get_header(); ?>
 	
