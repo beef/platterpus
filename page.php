@@ -14,8 +14,6 @@
 			
 			<?php comments_template( '', true ); // Remove if you don't want comments ?>
 			
-			<br class="clear">
-			
 			<?php edit_post_link(); ?>
 			
 		</article>
@@ -28,7 +26,7 @@
 		<!-- Article -->
 		<article>
 			
-			<h2><?php _e( 'Sorry, nothing to display.' ); ?></h2>
+			<h2>Sorry, nothing to display.</h2>
 			
 		</article>
 		<!-- /Article -->

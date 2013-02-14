@@ -19,13 +19,11 @@
 		
 		<!-- Post Details -->
 		<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-		<span class="author"><?php _e( 'Published by' ); ?> <?php the_author_posts_link(); ?></span>
-		<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts' ), __( '1 Comment' ), __( '% Comments' )); ?></span>
+		<span class="author">Published by <?php the_author_posts_link(); ?></span>
+		<span class="comments"><?php comments_popup_link('Leave your thoughts','1 Comment','% Comments'); ?></span>
 		<!-- /Post Details -->
 		
 		<?php the_excerpt(); ?>
-		
-		<br class="clear">
 		
 		<?php edit_post_link(); ?>
 		
@@ -38,7 +36,7 @@
 
 	<!-- Article -->
 	<article>
-		<h2><?php _e( 'Sorry, nothing to display.' ); ?></h2>
+		<h2>Sorry, nothing to display.</h2>
 	</article>
 	<!-- /Article -->
 

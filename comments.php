@@ -1,6 +1,6 @@
 <div id="comments">
 	<?php if (post_password_required()) : ?>
-	<p><?php _e( 'Post is password protected. Enter the password to view any comments.' ); ?></p>
+	<p>Post is password protected. Enter the password to view any comments.</p>
 </div> <!-- END: comments if password protected -->
 
 	<?php return; endif; ?>
@@ -15,7 +15,7 @@
 
 <?php elseif ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 	
-	<p><?php _e( 'Comments are closed here.' ); ?></p>
+	<p>Comments are closed here.</p>
 	
 <?php endif; ?>
 
