@@ -14,7 +14,9 @@
 		
 			<?php the_content(); ?>
 			
-			<?php comments_template( '', true ); // Remove if you don't want comments ?>
+			<?php disqus_embed('xiniatest'); ?>
+									
+			<?php disqus_count('xiniatest'); ?>
 			
 			<?php edit_post_link(); ?>
 			
