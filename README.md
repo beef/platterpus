@@ -17,7 +17,7 @@ Platterpus was written / compiled by the Front End Dev nerds at Beef.
 
 ###Craig Coles  
 - [@craigcoles](http://twitter.com/craigcoles "Craig Coles on Twitter")  
-- [craigcoles.com](http://craigcoles.com "Craig Coles Website")
+- [craigcoles.co.uk](http://craigcoles.co.uk "Craig Coles Website")
 
 
 ## Credit where credit is due
