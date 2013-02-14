@@ -25,8 +25,6 @@
 		
 		<?php the_excerpt(); ?>
 		
-		<br class="clear">
-		
 		<?php edit_post_link(); ?>
 		
 	</article>
