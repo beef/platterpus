@@ -1,4 +1,6 @@
-<?php /* Template Name: Demo Page Template */ ?>
+<?php /* Template Name: Demo Page Template */ 
+	$disqus_shortname = get_option("platterpus_disqus_shortname"); 
+?> 
 
 <?php get_header(); ?>
 	
@@ -14,9 +16,9 @@
 		
 			<?php the_content(); ?>
 			
-			<?php disqus_embed('xiniatest'); ?>
+			<?php disqus_embed($disqus_shortname); ?>
 									
-			<?php disqus_count('xiniatest'); ?>
+			<?php disqus_count($disqus_shortname); ?>
 			
 			<?php edit_post_link(); ?>
 			

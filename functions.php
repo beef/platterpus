@@ -13,5 +13,6 @@ require_once locate_template('/functions/custom.php');							// Custom Features
 
 require_once locate_template('/functions/widget-areas.php');				// Widget Areas
 require_once locate_template('/functions/custom-post-types.php');   // Custom Post Types
+require_once locate_template('/functions/theme-options.php');       // Theme Options
 
 ?>
