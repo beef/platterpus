@@ -9,6 +9,18 @@ It is the starting point to WordPress projects at [Beef](http://wearebeef.co.uk)
 ##Why
 There are plenty of other WordPress starter themes out there, many are even listed below. There are of course always bits and pieces that don't suit your development flow, or the way you like your CSS to be structured etc. Also, we have so specific requirements as an agency that mean we need something we can use on many sites, and so something we wrote ourselves.
 
+##How
+The first thing to do is fork/clone/download the repo to your hearts content. Once there, you'll need the [Forge](http://forge.thethemefoundry.com/) gem installed. We are using [RVM](https://rvm.io/) and have a gemset and a single wordpress install setup for easy development on multiple themes. Then you can use the link and watch comands as detialed on the Forge site as normal.
+
+##To Do
+Currently Forge lacks a templating ability. For example, with [Middleman](http://middlemanapp.com) you can use "--template=" to load a custom template. So if/when that feature comes to into furition then we'll make platterpus work like that.
+
+Setting up the featuers.php so that is much eaiser to customise. Making everything a function call that can be commented out etc.
+
+Going though and tidying up the php templates, though the views we've used from [HTML5 BLank](http://html5blank.com) have done a pretty good job of this.
+
+Putting the languages/translations stuff back in.
+
 ##Who
 Platterpus was written / compiled by the Front End Dev nerds at Beef.
 
