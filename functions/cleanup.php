@@ -81,9 +81,15 @@ function failed_login() {
 // Edt Admin Footer
 function modify_footer_admin () {  
   echo 'Created by <a href="http://www.wearebeef.com">Beef</a>. Powered by <a href="http://www.wordpress.org">WordPress</a>';  
-}  
+}
 
 
+// Replace the default welcome 'Howdy' in the admin bar with something more professional.
+function admin_bar_replace_howdy($wp_admin_bar) {
+    $account = $wp_admin_bar->get_node('my-account');
+    $replace = str_replace('Howdy,', 'Welcome,', $account->title);            
+    $wp_admin_bar->add_node(array('id' => 'my-account', 'title' => $replace));
+}
 
 // Initiate
 //---------------------------------------------------------
@@ -96,6 +102,7 @@ add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove
 add_filter('screen_options_show_screen', '__return_false'); // Hides the screen options tab
 add_filter('login_errors', 'failed_login'); // Change Login Error Messages
 add_filter('admin_footer_text', 'modify_footer_admin'); // Edt Admin Footer
+add_filter('admin_bar_menu', 'admin_bar_replace_howdy', 25); // Replace the default welcome 'Howdy' in the admin bar with something more professional.
 
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
 
@@ -112,6 +119,5 @@ remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
 add_filter('the_generator', '__return_false'); //Remove the WordPress version from RSS feeds
-
 
 ?>
