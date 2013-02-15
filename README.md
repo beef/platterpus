@@ -1,9 +1,9 @@
 #Platterpus
 
-Platterpus is a base Wordpress theme based on Platter. It is the starting point to Wordpress projects at [Beef](http://wearebeef.co.uk).
+Platterpus is a base WordPress theme based on Platter. It is the starting point to WordPress projects at [Beef](http://wearebeef.co.uk).
 
 ##Why
-There are plenty of other Wordpress Starter themes out there, many are even listed bellow. There are of corse always bits and pieces that don't suit your developement flow, or the way you like your CSS layed out etc. Also, swe have so specific requirments as an agency that mean we need something we can use on many sites, and so something we wrote ourselves.
+There are plenty of other WordPress Starter themes out there, many are even listed bellow. There are of course always bits and pieces that don't suit your development flow, or the way you like your CSS laid out etc. Also, we have so specific requirements as an agency that mean we need something we can use on many sites, and so something we wrote ourselves.
 
 
 ##What
