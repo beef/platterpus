@@ -73,7 +73,7 @@ function platterpus_default_input_options() {
  *
  * This function is registered with the 'admin_init' hook.
  */ 
-function platterpus_initialize_input_examples() {
+function platterpus_initialize() {
 
     if( false == get_option( 'platterpus_input_examples' ) ) {   
         add_option( 'platterpus_input_examples', apply_filters( 'platterpus_default_input_options', platterpus_default_input_options() ) );
@@ -81,7 +81,7 @@ function platterpus_initialize_input_examples() {
 
     add_settings_section(
         'platterpus_section',
-        __( 'Input Examples', 'sandbox' ),
+        'Input Examples',
         'platterpus_callback',
         'platterpus_input_examples'
     );
@@ -90,6 +90,14 @@ function platterpus_initialize_input_examples() {
         'Google Analytics ID',                       
         'Google Analytics ID',                           
         'google_analytics_id_callback',   
+        'platterpus_input_examples', 
+        'platterpus_section'            
+    );
+
+    add_settings_field( 
+        'Disqus Shortname',                       
+        'Disqus Shortname',                           
+        'disqus_shortname_callback',   
         'platterpus_input_examples', 
         'platterpus_section'            
     );
@@ -133,7 +141,7 @@ function platterpus_initialize_input_examples() {
     );
 
 } // end sandbox_theme_initialize_input_examples
-add_action( 'admin_init', 'platterpus_initialize_input_examples' );
+add_action( 'admin_init', 'platterpus_initialize' );
 
 /* ------------------------------------------------------------------------ *
  * Section Callbacks
@@ -161,10 +169,19 @@ function platterpus_callback() {
  */
 function google_analytics_id_callback() {
     
-    $options = get_option( 'sandbox_theme_input_examples' );
+    $options = get_option( 'platterpus_input_examples' );
     
     // Render the output
-    echo '<input placeholder="UX-XXXXX-Y" type="text" id="google_analytics_id" name="sandbox_theme_input_examples[google_analytics_id]" value="' . $options['google_analytics_id'] . '" />';
+    echo '<input placeholder="UX-XXXXX-Y" type="text" id="google_analytics_id" name="platterpus_input_examples[google_analytics_id]" value="' . $options['google_analytics_id'] . '" />';
+    
+} // end sandbox_input_element_callback
+
+function disqus_shortname_callback() {
+    
+    $options = get_option( 'platterpus_input_examples' );
+    
+    // Render the output
+    echo '<input type="text" id="disqus_shortname" name="platterpus_input_examples[disqus_shortname]" value="' . $options['disqus_shortname'] . '" />';
     
 } // end sandbox_input_element_callback
 

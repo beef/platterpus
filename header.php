@@ -37,7 +37,7 @@
         <?php wp_head(); ?>
     <!-- eo:assets -->    
     
-    <?php $input_examples = get_option('sandbox_theme_input_examples'); ?>
+    <?php $input_examples = get_option('platterpus_input_examples'); ?>
     <?php if( isset( $input_examples['google_analytics_id'] ) && $input_examples['google_analytics_id'] ) : ?>
       <!-- Google Analytics -->
         <script type="text/javascript">
