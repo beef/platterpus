@@ -12,21 +12,23 @@
 function platterpus_scripts() {
     if (!is_admin()) {
         wp_deregister_script('jquery'); // Deregister WordPress jQuery
+
+        wp_register_script('modernizr', get_template_directory_uri() . '/modernizr.min.js'); // Modernizr
+        wp_enqueue_script('modernizr'); // Enqueue it!
+
         wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js', array(), '1.9.0', true); // Google CDN jQuery
         wp_enqueue_script('jquery'); // Enqueue it!
         
-        wp_register_script('modernizr', get_template_directory_uri() . '/assets/javascripts/modernizr.min.js', array('jquery'), '2.6.2'); // Modernizr
-        wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('platterpus', get_template_directory_uri() . '/assets/javascripts/application.js', array('jquery'), '1.0.0', true); // Custom scripts
+
+        wp_register_script('platterpus', get_template_directory_uri() . '/javascripts/theme.js', array('jquery'), '1.0.0', true); // Custom scripts
         wp_enqueue_script('platterpus'); // Enqueue it!
     }
 }
 
 // Theme Stylesheets using Enqueue
 function platterpus_styles() {   
-    wp_register_style('platterpus', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
-    wp_enqueue_style('platterpus'); // Enqueue it!
+  wp_enqueue_style('platterpus',get_bloginfo( 'stylesheet_url' ));
 }
 
 // Add page slug to body class, love this - Credit: Starkers Wordpress Theme
